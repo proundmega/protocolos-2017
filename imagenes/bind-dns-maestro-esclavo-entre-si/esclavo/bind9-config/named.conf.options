@@ -25,5 +25,8 @@ options {
 	// Opciones necesarias para que el esclavo funcione correctamente
 	listen-on-v6 { 2001:db8:2::1; };
 	listen-on { 192.168.0.100; };
+	
+	notify yes;
+	also-notify { 192.168.0.200; };	
 };
 

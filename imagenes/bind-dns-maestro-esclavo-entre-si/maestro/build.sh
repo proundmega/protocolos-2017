@@ -1,7 +1,8 @@
 #/bin/bash
 
+source var.build
+
 BIND_DIR='bind9-config'
-DOCKER_NOMBRE='proundmega/bind9-master-proundmega'
 BIND_CONFIG_ZIP='bind9-config.tar.gz'
 
 # Accedo al directorio de configuracion y comprimo todo
@@ -11,7 +12,7 @@ echo "**********************************************************"
 #sleep 1s
 echo "**********************************************************"
 #sleep 1s
-echo "****** Builder de dns para dominio maestro: pachangamix.com ******"
+echo "****** Builder de dns para dominio maestro: $DOMINIO ******"
 #sleep 2s
 
 

@@ -11,5 +11,5 @@ echo "Entrada 2: www.pachangamix.com (192.168.0.201, 2001:db8:1::2)"
 echo "**********************************************************"
 # --net=host
 
-docker run --net=host --rm --name master -it bind9-master-pachangamix
+docker run --net=host --rm --name master -it proundmega/bind9-master
 

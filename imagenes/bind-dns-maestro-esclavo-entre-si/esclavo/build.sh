@@ -1,7 +1,7 @@
 #/bin/bash
 
 BIND_DIR='bind9-config'
-DOCKER_NOMBRE='proundmega/bind9-master-proundmega'
+DOCKER_NOMBRE='proundmega/bind9-slave'
 BIND_CONFIG_ZIP='bind9-config.tar.gz'
 
 # Accedo al directorio de configuracion y comprimo todo

@@ -1,0 +1,31 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+zone "pachangamix.com" {
+	type master;
+	file "/etc/bind/db.pachangamix.com";
+	allow-transfer { none; };
+        allow-query { any; };
+};
+
+zone "proundmega.com" {
+	type master;
+	file "/etc/bind/db.proundmega.com";
+	allow-query { any;};
+	allow-transfer { none; };
+};
+
+zone "0.168.192.in-addr.arpa" {
+	type master;
+	file "/etc/bind/db.0.168.192";
+};
+
+zone "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1.0.0.0.8.b.d.0.1.0.0.2.ip6.arpa" {
+	type master;
+	file "/etc/bind/db.2001";
+};

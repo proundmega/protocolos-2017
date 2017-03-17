@@ -1,15 +1,15 @@
 ;
 ; BIND reverse data file for local loopback interface
 ;
-$TTL	604800
+$TTL	10
 @	IN	SOA	manijapones.com. root.manijapones.com. (
 			      2		; Serial
-			 604800		; Refresh
-			  86400		; Retry
-			2419200		; Expire
-			 604800 )	; Negative Cache TTL
+			     10		; Refresh
+			     10		; Retry
+			     30		; Expire
+			     10 )	; Negative Cache TTL
 ;
 @	IN	NS	manijapones.com.
 18	IN	PTR	manijapones.com.
-18	IN	PTR	www.manijapones.com.
+20	IN	PTR	www.manijapones.com.
 

@@ -2,4 +2,4 @@
 
 source docker.conf
 
-docker run -p 53:53/tcp -p 53:53/udp --rm --name master -it $DOCKER_NOMBRE bash
+docker run --rm --name vansi -it $DOCKER_NOMBRE bash

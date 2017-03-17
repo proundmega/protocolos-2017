@@ -11,5 +11,5 @@ $TTL	604800
 ;
 @	IN	NS	ns1.pachangamix.com.
 
-101 	IN	PTR	ns1.pachangamix.com.
+100 	IN	PTR	ns1.pachangamix.com.
 101 	IN	PTR	www.pachangamix.com.

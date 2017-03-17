@@ -6,22 +6,6 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
-masters ips {
-	192.168.0.1;
-	192.168.0.2;
-	192.168.0.3;
-	192.168.0.4;
-	192.168.0.5;
-	192.168.0.6;
-	192.168.0.7;
-	192.168.0.8;
-	192.168.0.9;
-	192.168.0.10;
-	192.168.0.11;
-	192.168.0.12;
-	192.168.0.13;
-};
-
 zone "pachangamix.com" {
 	type master;
 	file "/etc/bind/db.pachangamix.com";
@@ -33,12 +17,12 @@ zone "manijapones.com" {
 	masters { ips; };
 };
 
-zone "43.168.192.in-addr.arpa" {
+zone "0.168.192.in-addr.arpa" {
 	type master;
 	file "/etc/bind/db.0.168.192";
 };
 
 zone "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1.0.0.0.8.b.d.0.1.0.0.2.ip6.arpa" {
 	type master;
-	file "/etc/bind/db.2001";
+	file "/etc/bind/db.2001.1";
 };

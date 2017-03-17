@@ -1,3 +1,15 @@
+masters ips {
+	192.168.0.2;
+	192.168.0.3;
+	192.168.0.4;
+	192.168.0.5;
+	192.168.0.6;
+	192.168.0.7;
+	192.168.0.8;
+	192.168.0.9;
+};
+
+
 options {
 	directory "/var/cache/bind";
 
@@ -24,6 +36,37 @@ options {
 	listen-on-v6 { any; };
 	
 	notify yes;
-	also-notify { 192.168.0.200; };
+	allow-notify { localnets; };
+	also-notify {ips; };
+	
+	max-refresh-time 10 ;
+ 	min-refresh-time 10 ;
+
+	max-retry-time 30 ;
+ 	min-retry-time 30 ;
+
+	multi-master yes ;
+};
+
+logging {
+        channel default_log {
+                print-time yes;
+                print-severity yes;
+                print-category yes;
+                severity info;
+		stderr;
+        };
+        channel resolver_file {
+                severity info;
+                print-time yes;
+		stderr;
+        };
+        channel xfer-in_file {
+                severity info;
+                print-time yes;
+		stderr;
+        };
+        category default { default_log; };
+        category general { default_log; };
 };
 

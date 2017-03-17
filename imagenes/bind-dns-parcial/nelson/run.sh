@@ -1,5 +1,7 @@
 #/bin/bash
 
+source docker.conf
+
 echo "**********************************************************"
 echo "**********************************************************"
 echo ""
@@ -11,5 +13,5 @@ echo "Entrada 2: www.pachangamix.com (192.168.0.201, 2001:db8:1::2)"
 echo "**********************************************************"
 # --net=host
 
-docker run -p 192.168.0.200:53:53/udp -p 192.168.0.200:53:53 --rm --name master -it proundmega/bind9-master-pachangamix
+docker run -p 53:53/tcp -p 53:53/udp --rm --name master -it $DOCKER_NOMBRE
 

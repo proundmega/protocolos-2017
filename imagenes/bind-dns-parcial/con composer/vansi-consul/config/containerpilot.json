@@ -18,7 +18,7 @@
         "named"
         ],
       "interfaces": [
-        "eth0"
+        "eth0", "eth2"
       ],
       "poll": 10,
       "ttl": 30,

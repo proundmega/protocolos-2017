@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+   consul:
+      image: test/consul
+      hostname: consul
+      networks:
+         - dns
+
+   vansi:
+      image: test/vansi-consul
+      hostname: vansi
+      networks:
+         - dns
+      ports:
+         - 54:53/tcp
+         - 54:53/udp
+      depends_on:
+         - consul
+
+   nelson:
+      image: test/nelson-consul
+      hostname: nelson
+      networks:
+         - dns
+      ports:
+         - 53:53/tcp
+         - 53:53/udp
+      depends_on:
+         - consul
+         
+
+networks:
+   dns:
+      driver: overlay

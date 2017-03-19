@@ -1,0 +1,9 @@
+docker service create --name consul --hostname consul --network dns test/consul
+
+docker service create --name nelson --hostname nelson --network dns -p 53:53/tcp -p 53:53/udp test/nelson-consul
+
+docker service create --name vansi --hostname vansi --network dns -p 54:53/tcp -p 54:53/udp test/vansi-consul
+
+
+
+

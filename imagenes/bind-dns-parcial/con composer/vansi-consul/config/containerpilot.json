@@ -1,0 +1,48 @@
+{
+  "consul": "consul:8500",
+  "preStart": "/usr/local/bin/preStart-script.sh {{.ENV_VAR_NAME}}",
+  "logging": {
+    "level": "INFO",
+    "format": "default",
+    "output": "stdout"
+  },
+  "stopTimeout": 5,
+  "preStop": "/usr/local/bin/preStop-script.sh",
+  "postStop": "/usr/local/bin/postStop-script.sh",
+  "services": [
+    {
+      "name": "vansi",
+      "port": 43,
+      "health": [
+        "pidof",
+        "named"
+        ],
+      "interfaces": [
+        "eth0"
+      ],
+      "poll": 10,
+      "ttl": 30,
+      "tags": ["tag1"]
+    }
+  ],
+  "backends": [
+    {
+      "name": "vansi",
+      "poll": 30,
+      "onChange": "/usr/local/bin/hermano.sh"
+    },
+    {
+      "name": "nelson",
+      "poll": 30,
+      "onChange": "/usr/local/bin/reload-app.sh"
+    }
+  ],
+  "tasks": [
+    {
+      "name": "task",
+      "command": ["/usr/local/bin/task.sh","arg1"],
+      "frequency": "1500ms",
+      "timeout": "100ms"
+    }
+  ]
+}

@@ -22,8 +22,7 @@ if [ $? -eq 0 ]; then
 			cd ..
 			echo "Contenedores compilados, listos para hacer deploy..."
 			
-			docker network rm dns_dns
-			docker stack rm dns
+			bash undeploy.sh
 			docker stack deploy --compose-file docker-compose.yml dns
 			
 			echo "Stack 'dns' lanzado, pruebe hacer dig a los host deseados..."

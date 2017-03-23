@@ -1,5 +1,4 @@
 
-
 options {
 	directory "/var/cache/bind";
 
@@ -36,6 +35,28 @@ options {
  	min-retry-time 30 ;
 
 	multi-master yes ;
+};
+
+logging {
+        channel default_log {
+                print-time yes;
+                print-severity yes;
+                print-category yes;
+                severity info;
+		stderr;
+        };
+        channel resolver_file {
+                severity info;
+                print-time yes;
+		stderr;
+        };
+        channel xfer-in_file {
+                severity info;
+                print-time yes;
+		stderr;
+        };
+        category default { default_log; };
+        category general { default_log; };
 };
 
 

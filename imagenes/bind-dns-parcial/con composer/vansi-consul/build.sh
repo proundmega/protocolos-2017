@@ -5,8 +5,6 @@ source docker.conf
 BIND_DIR='bind9-config/'
 BIND_CONFIG_ZIP='bind9-config.tar.gz'
 
-cp /etc/bind/* $BIND_DIR
-
 # Accedo al directorio de configuracion y comprimo todo
 echo "**********************************************************"
 #sleep 1s

@@ -19,6 +19,19 @@ if [ $? -eq 0 ]; then
 		bash build.sh
 
 		if [ $? -eq 0 ]; then
+			echo "Imagenes compiladas, subiendolas al repo..."
+
+			# Se tagean las imagenes para luego ser subidas
+			docker tag test/consul localhost:5000/consul
+			docker tag test/nelson-consul localhost:5000/nelson-consul
+			docker tag test/vansi-consul localhost:5000/vansi-consul
+
+			# Se suben las imagenes al repo
+			docker push localhost:5000/consul
+			docker push localhost:5000/nelson-consul
+			docker push localhost:5000/vansi-consul
+			
+
 			cd ..
 			echo "Contenedores compilados, listos para hacer deploy..."
 			

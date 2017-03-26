@@ -1,0 +1,14 @@
+Esta imagen es la base para usar container-pilot hecha por mi. La idea es hacer todo
+esto mas facil. Utiliza debian como base y deja todo listo solo para configurar
+tu instancia de containerpilot.
+
+Declara la variable CONTAINERPILOT=file:///etc/containerpilot.json para que
+contanierpilot sepa que en /etc se encuentra su configuracion.
+
+La idea es usar este como primera linea en un Dockerfile asi:
+
+	FROM proundmega/container-pilot:latest
+
+Este contenedor busca servir como template para otros contenedores personalizados.
+
+

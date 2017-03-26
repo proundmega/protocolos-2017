@@ -1,0 +1,3 @@
+Este docker que esta aqui simplemente es un prototipo de contenedor.
+Por si solo no hace mucho, pero da un template de trabajo para otros contenedores.
+

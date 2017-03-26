@@ -1,0 +1,43 @@
+{
+  "consul": "consul:8500",
+  "preStart": "/usr/local/bin/preStart-script.sh",
+  "logging": {
+    "level": "INFO",
+    "format": "default",
+    "output": "stdout"
+  },
+  "stopTimeout": 5,
+  "preStop": "/usr/local/bin/preStop-script.sh",
+  "postStop": "/usr/local/bin/postStop-script.sh",
+  "services": [
+    {
+      "name": "mi_servicio",
+      "port": 80,
+      "health": [
+        "pidof",
+        "web-service"
+        ],
+      "interfaces": [
+        "eth0", "eth2"
+      ],
+      "poll": 10,
+      "ttl": 30,
+      "tags": ["tag1"]
+    }
+  ],
+  "backends": [
+    {
+      "name": "mi_dependencia",
+      "poll": 30,
+      "onChange": "/usr/local/bin/reload-app.sh"
+    }
+  ],
+  "tasks": [
+    {
+      "name": "task",
+      "command": ["/usr/local/bin/task.sh","arg1"],
+      "frequency": "1500ms",
+      "timeout": "100ms"
+    }
+  ]
+}

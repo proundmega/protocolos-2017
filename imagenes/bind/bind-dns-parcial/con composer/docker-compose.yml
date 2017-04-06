@@ -2,7 +2,7 @@ version: '3'
 
 services:
    consul:
-      image: test/consul
+      image: consul
       hostname: consul
       networks:
          - dns

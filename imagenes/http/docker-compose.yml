@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+   consul:
+      image: consul
+      hostname: consul
+      networks:
+         - app
+
+   redis:
+      image: redis
+      hostname: redis
+      networks:
+         - app
+      depends_on:
+         - consul
+
+   haproxy:
+      image: test/haproxy
+      hostname: haproxy
+      networks:
+         - app
+      depends_on:
+         - consul
+      ports:
+         - 80:80/tcp
+         - 443:443/tcp
+
+   java-1-1:
+      image: test/java-app
+      networks:
+         - app
+      depends_on:
+         - consul
+         - redis
+      deploy:
+         mode: replicated
+         replicas: 2
+      
+
+networks:
+   app:
+      driver: overlay

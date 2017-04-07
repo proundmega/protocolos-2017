@@ -1,6 +1,5 @@
 {
   "consul": "consul:8500",
-  "preStart": "/usr/local/bin/preStart-script.sh",
   "logging": {
     "level": "INFO",
     "format": "default",
@@ -19,7 +18,7 @@
       ],
       "poll": 10,
       "ttl": 30,
-      "tags": ["tag1"]
+      "tags": ["1.0"]
     }
   ],
   "backends": [
@@ -27,14 +26,6 @@
       "name": "redis",
       "poll": 30,
       "onChange": "/usr/local/bin/reload-app.sh"
-    }
-  ],
-  "tasks": [
-    {
-      "name": "task",
-      "command": ["/usr/local/bin/task.sh","arg1"],
-      "frequency": "1500ms",
-      "timeout": "100ms"
     }
   ]
 }

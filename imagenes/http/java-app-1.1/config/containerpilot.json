@@ -1,6 +1,5 @@
 {
   "consul": "consul:8500",
-  "preStart": "/usr/local/bin/preStart-script.sh",
   "logging": {
     "level": "INFO",
     "format": "default",
@@ -8,23 +7,23 @@
   },
   "services": [
     {
-      "name": "haproxy",
-      "port": 80,
+      "name": "app",
+      "port": 8080,
       "health": [
         "pidof",
-        "haproxy"
+        "java"
         ],
       "interfaces": [
         "eth0"
       ],
       "poll": 10,
       "ttl": 30,
-      "tags": ["tag1"]
+      "tags": ["1.1"]
     }
   ],
   "backends": [
     {
-      "name": "app",
+      "name": "redis",
       "poll": 30,
       "onChange": "/usr/local/bin/reload-app.sh"
     }

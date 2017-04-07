@@ -1,4 +1,4 @@
-FROM haproxy:1.7
+FROM proundmega/container-pilot:latest
 
 # *** Notas ***
 # Si no se indica ningun CMD, el contenedor ejecuta: tail -f /dev/null que es para
@@ -9,34 +9,22 @@ FROM haproxy:1.7
 
 # *** INICIO DE PARTE OBLIGATORIA ***
 
-RUN apt-get update && apt-get install -y curl wget
-
-# Codigo para correr container-pilot
-ENV CONTAINERPILOT_VERSION 2.1.2
-RUN export CP_SHA1=c31333047d58ba09d647d717ae1fc691133db6eb \
-    && curl -Lso /tmp/containerpilot.tar.gz \
-         "https://github.com/joyent/containerpilot/releases/download/${CONTAINERPILOT_VERSION}/containerpilot-${CONTAINERPILOT_VERSION}.tar.gz" \
-    && echo "${CP_SHA1}  /tmp/containerpilot.tar.gz" | sha1sum -c \
-    && tar zxf /tmp/containerpilot.tar.gz -C /bin \
-    && rm /tmp/containerpilot.tar.gz
-
-# Se añaden los scrits y la configuracion de containerpilot
-ENV CONTAINERPILOT=file:///etc/containerpilot.json
+RUN apt-get update && apt-get install -y wget haproxy python nano
 
 COPY config /etc
 COPY bin /usr/local/bin
 RUN chmod 777 /usr/local/bin/*
 
-# *** FIN DE PARTE OBLIGATORIA ***
+# Certificados
 
-# Aqui va tu configuiracion de docker normal
+COPY certs/server.crt /etc/ssl/certs
+COPY certs/server.pem /etc/ssl/private
 
-RUN apt-get install -y python
+COPY haproxy-config/ /etc/haproxy/
+RUN cd /etc/haproxy && python replace.py 127.0.0.1
 
-COPY haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
-RUN haproxy -c -f /usr/local/etc/haproxy/haproxy.cfg
+RUN haproxy -c -f /etc/haproxy/haproxy.cfg
 
-CMD ["/bin/containerpilot", "haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg" ]
 
 
 

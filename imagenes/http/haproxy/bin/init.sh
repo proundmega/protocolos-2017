@@ -1,2 +1,0 @@
-#!/bin/bash
-SPRING_APPLICATION_JSON='{}'

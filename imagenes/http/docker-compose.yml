@@ -16,7 +16,7 @@ services:
          - consul
 
    haproxy:
-      image: test/haproxy
+      image: proundmega/http-haproxy
       hostname: haproxy
       networks:
          - app
@@ -25,9 +25,12 @@ services:
       ports:
          - 80:80/tcp
          - 443:443/tcp
+      deploy:
+         mode: replicated
+         replicas: 2
 
-   java-1-1:
-      image: test/java-app
+   java:
+      image: proundmega/http-app:1.0
       networks:
          - app
       depends_on:
@@ -35,7 +38,7 @@ services:
          - redis
       deploy:
          mode: replicated
-         replicas: 2
+         replicas: 3
       
 
 networks:

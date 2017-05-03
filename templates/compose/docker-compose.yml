@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+   consul:
+      image: consul
+      hostname: consul
+      networks:
+         - app
+
+   redis:
+      image: redis
+      hostname: redis
+      networks:
+         - app
+      depends_on:
+         - consul
+
+   haproxy:
+      image: proundmega/http-haproxy
+      hostname: haproxy
+      networks:
+         - app
+      depends_on:
+         - consul
+      ports:
+         - 80:80/tcp
+         - 443:443/tcp
+      deploy:
+         mode: replicated
+         replicas: 2
+
+   java:
+      image: proundmega/http-app:1.0
+      networks:
+         - app
+      depends_on:
+         - consul
+         - redis
+      deploy:
+         mode: replicated
+         replicas: 3
+      
+
+networks:
+   app:
+      driver: overlay

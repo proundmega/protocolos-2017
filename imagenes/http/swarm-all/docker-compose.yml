@@ -27,7 +27,7 @@ services:
          - 443:443/tcp
       deploy:
          mode: replicated
-         replicas: 2
+         replicas: 1
 
    java:
       image: proundmega/http-app:1.0
@@ -38,7 +38,7 @@ services:
          - redis
       deploy:
          mode: replicated
-         replicas: 3
+         replicas: 1
       
 
 networks:

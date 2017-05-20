@@ -1,0 +1,4 @@
+dn: ou=produccion,dc=pachangamix,dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: produccion

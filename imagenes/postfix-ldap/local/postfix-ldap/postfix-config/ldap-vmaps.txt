@@ -1,0 +1,16 @@
+server_host = 127.0.0.1
+
+# Parte del arbol usada como base de la busqueda
+search_base = ou=produccion,dc=pachangamix,dc=com
+
+# Sin autenticar
+bind = no
+
+# Tiempo limite de transaccion
+timeout = 2
+
+# Usuario + dominio para hacer busquedas
+query_filter = mail=%u@pachangamix.com
+
+# Variable del query donde obtengo el correro
+result_attribute = mailbox

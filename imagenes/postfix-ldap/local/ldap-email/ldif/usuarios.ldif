@@ -1,0 +1,13 @@
+dn: uid=vansi,ou=produccion,dc=pachangamix,dc=com
+cn: vansi
+homeDirectory: /home/vansi
+mail: vansi@pachangamix.com
+objectClass: CourierMailAccount
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+userPassword: {MD5}0Kc+sbR9v3LF2cyGKZ8aJA==
+sn: olivares
+uid: vansi
+mailbox: pachangamix/vansi/

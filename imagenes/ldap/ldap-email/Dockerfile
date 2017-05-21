@@ -19,3 +19,8 @@ RUN /etc/init.d/slapd start && \
 RUN /etc/init.d/slapd start && \
 	ldapadd -x -w $PASSWORD -D "cn=admin,dc=pachangamix,dc=com" -f /etc/ldif/usuarios.ldif -h localhost && \
 	 /etc/init.d/slapd stop
+
+# Altero permisos de usuario 'lectura' a solo lectura
+RUN /etc/init.d/slapd start && \
+	ldapmodify -x -w $PASSWORD -D "cn=admin,cn=config" -f /etc/ldif/permisos.ldif -h localhost && \
+	 /etc/init.d/slapd stop

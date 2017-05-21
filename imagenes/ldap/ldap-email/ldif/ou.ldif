@@ -2,3 +2,10 @@ dn: ou=produccion,dc=pachangamix,dc=com
 objectClass: organizationalUnit
 objectClass: top
 ou: produccion
+
+dn: cn=lectura,dc=pachangamix,dc=com
+objectClass: organizationalRole
+objectClass: simpleSecurityObject
+userPassword: {MD5}gPH4rKxI8yxfm5GLwUr9yg==
+description: Acceso solo de lectura al arbol
+#Pass: lectura

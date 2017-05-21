@@ -1,0 +1,18 @@
+root@pachangamix:/etc/postfix# telnet localhost 25
+Trying ::1...
+Connected to localhost.
+Escape character is '^]'.
+220 pachangamix.com ESMTP Postfix (Debian/GNU)
+HELO empleados.ues.edu.sv
+250 pachangamix.com
+mail from:<juan.pena@ues.edu.sv>
+250 2.1.0 Ok
+rcpt to:<jorge.gonzalez@pachangamix.com>
+250 2.1.5 Ok
+DATA  
+354 End data with <CR><LF>.<CR><LF>
+Enviado desde 12/5/17 14:59
+.
+250 2.0.0 Ok: queued as 31EC41005FF
+
+rcpt to:<vansi@pachangamix.com>

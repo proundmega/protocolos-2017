@@ -19,3 +19,5 @@ RUN /etc/init.d/slapd start && \
 RUN /etc/init.d/slapd start && \
 	ldapadd -x -w $PASSWORD -D "cn=admin,dc=pachangamix,dc=com" -f /etc/ldif/usuarios.ldif -h localhost && \
 	 /etc/init.d/slapd stop
+
+RUN rm -rf /etc/ldif

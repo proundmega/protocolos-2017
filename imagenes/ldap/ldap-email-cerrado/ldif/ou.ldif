@@ -1,8 +1,3 @@
-dn: ou=produccion,dc=pachangamix,dc=com
-objectClass: organizationalUnit
-objectClass: top
-ou: produccion
-
 dn: cn=lectura,dc=pachangamix,dc=com
 objectClass: organizationalRole
 objectClass: simpleSecurityObject

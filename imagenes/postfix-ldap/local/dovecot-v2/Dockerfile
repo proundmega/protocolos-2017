@@ -7,3 +7,5 @@ RUN cd etc/copy && chmod a+x copy.sh && bash copy.sh
 
 # Configuracion postfix
 COPY postfix-config/ etc/postfix
+
+RUN postmap /etc/postfix/ldap-vmaps.txt

@@ -3,8 +3,7 @@ FROM debian:latest
 # Toda esta parte es configuracion de ldap. NO MODIFICAR
 RUN mkdir -p /etc/docker/config
 COPY config/ /etc/docker/config
-RUN chmod 777 /etc/docker/config
-RUN bash /etc/docker/config/config-slapd.sh
+RUN chmod a+x /etc/docker/config/config-slapd.sh && bash /etc/docker/config/config-slapd.sh
 
 RUN apt-get update && apt-get install -y slapd ldap-utils
 EXPOSE 389

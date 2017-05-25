@@ -3,6 +3,7 @@ changetype: modify
 replace: olcAccess
 olcAccess: {0}to attrs="userPassword,shadowLastChange" 
  by self write 
+ by dn.base="cn=lectura,dc=pachangamix,dc=com" read 
  by anonymous auth 
  by * none 
 olcAccess: {1}to dn.subtree="dc=pachangamix,dc=com" 

@@ -9,5 +9,5 @@ source config/docker.conf
 # -p [puerto_destino_host]:[puerto_origen_docker]/[tcp|ip]
 # Ejemplo: -p 50:50/tcp
 
-docker run --rm --name $RUNTIME_NOMBRE $DOCKER_NOMBRE
+docker run --rm --name $RUNTIME_NOMBRE -it -p 389:389 -p 636:636 --net=host $DOCKER_NOMBRE
 

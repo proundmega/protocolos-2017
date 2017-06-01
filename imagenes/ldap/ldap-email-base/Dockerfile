@@ -15,9 +15,4 @@ RUN /etc/init.d/slapd start && \
 	ldapadd -x -w $PASSWORD -D "cn=admin,dc=pachangamix,dc=com" -f /etc/ldif/ou.ldif -h localhost && \
 	 /etc/init.d/slapd stop
 
-# Añado a los usuarios de ou=produccion
-RUN /etc/init.d/slapd start && \
-	ldapadd -x -w $PASSWORD -D "cn=admin,dc=pachangamix,dc=com" -f /etc/ldif/usuarios.ldif -h localhost && \
-	 /etc/init.d/slapd stop
-
 RUN rm -rf /etc/ldif

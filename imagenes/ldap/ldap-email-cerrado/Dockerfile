@@ -1,4 +1,4 @@
-FROM proundmega/ldap-email-abierto:latest
+FROM proundmega/ldap-email-usuarios:latest
 
 ENV PASSWORD=ldap
 

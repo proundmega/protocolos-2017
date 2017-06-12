@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+   asterisk-1:
+      image: proundmega/asterisk-dundi-1
+      hostname: pachangamix.com
+      networks:
+         - app
+      ports:
+         - 5060:5060/udp
+
+   asterisk-2:
+      image: proundmega/asterisk-dundi-2
+      hostname: tortix.com
+      networks:
+         - app
+      ports:
+         - 5061:5060/udp
+
+   ldap-1:
+      image: proundmega/ldap-email-asterisk-base
+      hostname: ldap.pachangamix.com
+      networks:
+         - app
+
+   ldap-2:
+      image: proundmega/ldap-email-asterisk-base
+      hostname: ldap.tortrix.com
+      networks:
+         - app
+      
+
+networks:
+   app:
+      driver: overlay

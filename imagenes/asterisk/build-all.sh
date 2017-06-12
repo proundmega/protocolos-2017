@@ -1,8 +1,11 @@
 #!/bin/bash
 
 containers=(
-	"asterisk" 
-	"ldap-asterisk" 
+	"asterisk-base"
+	"asterisk-ldap"
+	"asterisk-ldap-email"
+	"asterisk-dundi-1"
+	"asterisk-dundi-2"
 )
 
 

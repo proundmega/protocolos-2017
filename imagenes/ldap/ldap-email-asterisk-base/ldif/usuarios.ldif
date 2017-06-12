@@ -13,12 +13,17 @@ uid: vansi
 userPassword: {MD5}0Kc+sbR9v3LF2cyGKZ8aJA==
 sn: olivares
 mailbox: pachangamix/vansi/
-AstAccountHost: Dynamic
+AstAccountHost: dynamic
 AstAccountType: friend
 AstAccountVideoSupport: yes
 AstAccountCallerId: vansi
 AstAccountRealmedPassword: vansi
+AstAccountContext: protocolos
 telephoneNumber: 0801
+AstAccountRegistrationContext: protocolos
+AstAccountRegistrationExten: 0801
+AstAccountDisallowedCodec: all
+AstAccountAllowedCodec: gsm, ulaw, alaw, vp8, h263, h263p, h264
 
 dn: uid=roberto,ou=produccion,dc=pachangamix,dc=com
 cn: roberto
@@ -35,12 +40,17 @@ uid: roberto
 userPassword: {MD5}0Kc+sbR9v3LF2cyGKZ8aJA==
 sn: arias
 mailbox: pachangamix/roberto/
-AstAccountHost: Dynamic
+AstAccountHost: dynamic
 AstAccountType: friend
 AstAccountVideoSupport: yes
 AstAccountCallerId: roberto
 AstAccountRealmedPassword: roberto
+AstAccountContext: protocolos
 telephoneNumber: 0802
+AstAccountRegistrationContext: protocolos
+AstAccountRegistrationExten: 0802
+AstAccountDisallowedCodec: all
+AstAccountAllowedCodec: gsm, ulaw, alaw, vp8, h263, h263p, h264
 
 # Obten el pass de asterisk usando:
 

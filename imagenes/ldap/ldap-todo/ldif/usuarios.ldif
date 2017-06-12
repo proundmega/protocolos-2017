@@ -1,0 +1,46 @@
+dn: uid=vansi,ou=produccion,dc=pachangamix,dc=com
+cn: vansi
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+objectClass: AsteriskSIPUser
+objectClass: AsteriskExtension
+uid: vansi
+userPassword: {MD5}0Kc+sbR9v3LF2cyGKZ8aJA==
+sn: olivares
+AstAccountHost: dynamic
+AstAccountType: friend
+AstAccountVideoSupport: yes
+AstAccountCallerId: vansi
+AstAccountRealmedPassword: vansi
+AstAccountContext: protocolos
+telephoneNumber: 0801
+AstAccountRegistrationContext: protocolos
+AstAccountRegistrationExten: 0801
+
+dn: uid=roberto,ou=produccion,dc=pachangamix,dc=com
+cn: roberto
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+objectClass: AsteriskSIPUser
+objectClass: AsteriskExtension
+uid: roberto
+userPassword: {MD5}0Kc+sbR9v3LF2cyGKZ8aJA==
+sn: arias
+AstAccountHost: dynamic
+AstAccountType: friend
+AstAccountVideoSupport: yes
+AstAccountCallerId: roberto
+AstAccountRealmedPassword: roberto
+AstAccountContext: protocolos
+telephoneNumber: 0802
+AstAccountRegistrationContext: protocolos
+AstAccountRegistrationExten: 0802
+
+# Obten el pass de asterisk usando:
+
+# echo 'pass' | md5sum
+

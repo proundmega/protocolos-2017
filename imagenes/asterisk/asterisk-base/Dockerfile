@@ -9,7 +9,13 @@ RUN chmod a+x /build-asterisk/build.sh && cd /build-asterisk/ && bash build.sh
 EXPOSE 5060/tcp
 EXPOSE 5060/udp
 
-CMD ["bash", "-c", "service asterisk start; sleep 3s; asterisk -rvvvvv; service asterisk stop"]
+RUN apt-get install -y nano curl
+
+# Parte hecha para dar soporte a vp8
+COPY parche/ /parche/
+RUN chmod a+x /parche/parche.sh && cd /parche/ && bash parche.sh
+
+CMD ["bash", "-c", "service asterisk start; sleep 3s; asterisk -rvvvvvvv; service asterisk stop"]
 
 
 

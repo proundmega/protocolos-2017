@@ -11,6 +11,6 @@ $TTL	10
 ;
 pachangamix.com. IN NS ns1.pachangamix.com.
 
-ns1	IN	A	192.168.0.22
-@	IN	A	192.168.0.22
-asterisk	IN	A	192.168.0.22
+ns1	IN	A	192.168.43.135
+@	IN	A	192.168.43.135
+asterisk	IN	A	192.168.43.135

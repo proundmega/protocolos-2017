@@ -1,0 +1,76 @@
+Hola! Soy Goku... nah
+
+Como sea, las 2 carpetas que van son las ultimas configuraciones que tengo, pero no creo que las
+necesiten SI LEEN ESTO.
+
+*** Cosas por añadir al Asterisk ***
+
+- En el archivo sip.conf, para permitir llamadas del estilo usuario@dominio.com
+  añade la siguiente linea en [general]
+
+	insecure=invite,port
+
+- Dejar de usar los numeros y usar el campo uid (o el que sea mejor, no se). Solo es cambiar una linea
+  en res_ldap.conf.
+
+- Crear un plan de llamadas para usar lo de llamadas por texto. Alli se muestra uno pero el patron es:
+
+	[protocolos]
+	include=>protocolos-local
+
+	[protocolos-local]
+	exten=>prueba,1,Playback(demo-echotest)
+	exten=>prueba,2,NoOp(Probando un log aqui en Asterisk)
+	exten=>prueba,3,Hangup()
+
+
+	exten=>_.[a-z].,1,Progress()
+	exten=>_.[a-z].,n,Dial(SIP/${EXTEN},30,Ttrf)
+
+Se añade la extension de prueba para probar localmente las peticiones.
+
+*** Cosas por añadir en Bind ***
+
+Estas son cosas para que funcione todo lo de bind sin poner el servidor de Siciliano como
+el de dns de todos nosotros, porque deberia ser algo asi...
+
+Cada quien usa su dns para si, añadiendo en resolv.conf algo asi:
+
+	nameserver 127.0.0.1
+
+Y en el bind se añade la ip de siciliano para hacer el forwarding de peticiones:
+
+	forwarders {
+	 	192.168.1.5;
+	};
+
+Eso en "teoria" no funciona asi nomas porque hay que cambiar la linea:
+
+	dnssec-validation auto;
+
+A:
+
+	dnssec-validation no;
+
+Ademas en el dominio de cada quien, añadan la siguiente entrada al dns porque el servidor
+NO HACE PING AL DOMINIO ROOT, tipo el comando de abajo da error:
+
+	ping manijapones.com
+
+Pero eso es facil de arreglar, solo añadan:
+
+	@	IN	A	192.168.0.22
+
+Y listo! funciona.
+
+
+*** Cosas por probar ***
+
+- Ajustar el dns de cada uno para apuntar al propio y el forwarding funcione correctamente.
+
+- Probar hacer llamadas al asterisk de cada uno usando su propio dominio. Tipo mi dominio es pachangamix.com, entonces pruebo
+  llamar a vansi@pachangamix.com estando registrado en mi dominio. Si esto funciona, ya avanzamos.
+
+- Probar llamar a otro asterisk siempre usando los nombres.
+
+Sean felices y que les vaya bien!!
